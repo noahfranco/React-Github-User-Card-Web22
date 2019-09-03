@@ -35,6 +35,7 @@ Followers = () => {
   .get("https://api.github.com/users/noahfranco/followers")
   .then(res => {
      console.log(res)
+     this.setState({followers: res.data})
 
   })
   .catch(error => {
@@ -48,7 +49,7 @@ Followers = () => {
         <h2> Github Accounts </h2>
         <UsersCard data={this.state.users}/> 
         {this.state.followers.map(display => (
-          <FollowersCard display={display} key={display.id} /> 
+          <FollowersCard data={display} key={display.id} /> 
         ))}
       </div>
     );
